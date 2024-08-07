@@ -1,0 +1,7 @@
+.profileSub {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+}

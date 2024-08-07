@@ -1,0 +1,24 @@
+.headerBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    width: 1000px;
+    height: 8%;
+    background-color: #2BC1BC;
+    border-radius: 20px
+}
+
+.adress {
+    width: 150px;
+    padding-left: 50px;
+    font-size: 22px;
+}
+
+.headerBar > input {
+    width: 500px;
+    height: 60%;
+    font-size: 18px;
+    border: none;
+    padding-left: 30px;
+}
