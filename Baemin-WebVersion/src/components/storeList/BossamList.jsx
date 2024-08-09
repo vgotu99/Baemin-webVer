@@ -4,8 +4,7 @@ import StoreListForm from "../StoreListForm";
 const BossamList = ({ switchView }) => {
   const bossamStores = stores.filter(
     (store) =>
-      store.type === "bossam" ||
-      (store.type === "bossam" && store.sells.includes("bossam"))
+      store.sells.includes('bossam')
   );
 
   return (

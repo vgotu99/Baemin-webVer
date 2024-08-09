@@ -2,9 +2,7 @@ import StoreListForm from "../StoreListForm";
 import { stores } from "../StoreList";
 
 const Per1List = ({ switchView }) => {
-  const per1Stores = stores.filter(
-    (store) => store.type === "per1" || store.sells.includes("per1")
-  );
+  const per1Stores = stores.filter((store) => store.sells.includes("per1"));
 
   return (
     <div>
