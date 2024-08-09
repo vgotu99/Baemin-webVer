@@ -1,0 +1,38 @@
+.button_sideBar {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #2ed3ce;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  justify-content: flex-start;
+}
+
+.button_sideBar> img {
+  width: 25px;
+}
+
+.button_mainItem {
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  font-size: 18px;
+  min-width: 130px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button_mainItem > img {
+  width: 70px;
+  height: auto;
+}

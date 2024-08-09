@@ -11,7 +11,6 @@ const ProfileSub = () => {
             <div>가게1</div>
             <div>가게1</div>
             <div>가게1</div>
-            <div>가게1</div>
             <div>더보기..</div>
         </div>
     )

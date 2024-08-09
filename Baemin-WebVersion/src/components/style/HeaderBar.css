@@ -1,24 +1,27 @@
 .headerBar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-    width: 1000px;
-    height: 8%;
-    background-color: #2BC1BC;
-    border-radius: 20px
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 50px;
+  width: 100%;
+  height: 70px;
+  background-color: #2ed3ce;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 .adress {
-    width: 150px;
-    padding-left: 50px;
-    font-size: 22px;
+  width: 150px;
+    padding-left: 30px;
+  font-size: 22px;
 }
 
 .headerBar > input {
-    width: 500px;
-    height: 60%;
-    font-size: 18px;
-    border: none;
-    padding-left: 30px;
+  width: 500px;
+  height: 45px;
+  font-size: 18px;
+  border: none;
+  padding-left: 30px;
+  border-radius: 10px;
 }

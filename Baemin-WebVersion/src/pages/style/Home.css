@@ -1,5 +1,4 @@
 .home {
-    background-color: antiquewhite;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -11,5 +10,5 @@
 .home_main {
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    width: 1000px;
 }
