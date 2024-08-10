@@ -1,6 +1,9 @@
+.button {
+    cursor: pointer;
+    border: none;
+}
+
 .button_sideBar {
-  cursor: pointer;
-  border: none;
   padding: 10px;
   font-size: 18px;
   background-color: #2ed3ce;
@@ -17,9 +20,7 @@
 }
 
 .button_mainItem {
-  cursor: pointer;
   background-color: white;
-  border: none;
   font-size: 18px;
   min-width: 130px;
   white-space: nowrap;
@@ -35,4 +36,65 @@
 .button_mainItem > img {
   width: 70px;
   height: auto;
+}
+
+
+.button_categoryBar {
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    background-color: white;
+    font-size: 18px;
+    width: 120px;
+    height: 50px;
+    
+}
+
+.button_per1 {
+  background-color: #2ed3ce;
+}
+.button_bossam {
+  background-color: #2ed3ce;
+}
+.button_jjigae {
+  background-color: #2ed3ce;
+}
+.button_sushi {
+  background-color: #2ed3ce;
+}
+.button_pizza {
+  background-color: #2ed3ce;
+}
+.button_meat {
+  background-color: #2ed3ce;
+}
+.button_night {
+  background-color: #2ed3ce;
+}
+.button_pasta {
+  background-color: #2ed3ce;
+}
+.button_chicken {
+  background-color: #2ed3ce;
+}
+.button_jjajng {
+  background-color: #2ed3ce;
+}
+.button_asian {
+  background-color: #2ed3ce;
+}
+.button_rice {
+  background-color: #2ed3ce;
+}
+.button_lunchbox {
+  background-color: #2ed3ce;
+}
+.button_tteokbokki {
+  background-color: #2ed3ce;
+}
+.button_cafe {
+  background-color: #2ed3ce;
+}
+.button_fastfood {
+  background-color: #2ed3ce;
 }

@@ -3,9 +3,9 @@
     flex-direction: column;
     gap: 10px;
     background-color: #2ed3ce;
-    width: 250px;
-    height: auto;
-    padding: 30px 20px;
+    width: calc(100% - 40px);
+    height: calc(100dvh - 60px);
+    padding: 30px 20px 30px 20px;
     border-radius: 10px;
 }
 

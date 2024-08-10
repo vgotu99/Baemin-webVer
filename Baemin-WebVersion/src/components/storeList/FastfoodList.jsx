@@ -1,12 +1,19 @@
 import { stores } from "../StoreList";
 import StoreListForm from "../StoreListForm";
+import Button from "../Button";
 
 const FastfoodList = ({ switchView }) => {
-  const fastfoodStores = stores.filter((store) => store.sells.includes("fastfood"));
+  const fastfoodStores = stores.filter((store) =>
+    store.sells.includes("fastfood")
+  );
 
   return (
     <div>
-      <button onClick={() => switchView("main")}>메인으로 돌아가기</button>
+      <Button
+        onClick={() => switchView("main")}
+        type={"goToMain"}
+        text={"메인으로 돌아가기"}
+      />
       {fastfoodStores.map((store) => (
         <StoreListForm
           key={store.id}
@@ -19,6 +26,6 @@ const FastfoodList = ({ switchView }) => {
       ))}
     </div>
   );
-  };
-  
-  export default FastfoodList
+};
+
+export default FastfoodList;

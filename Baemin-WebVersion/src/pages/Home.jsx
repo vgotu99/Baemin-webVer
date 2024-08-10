@@ -26,7 +26,7 @@ const Home = () => {
   const [curView, setCurView] = useState("main");
 
   const switchView = (view) => {
-    setCurView(view);
+    setCurView(view)
   };
 
   const renderMain = () => {
@@ -65,27 +65,39 @@ const Home = () => {
         return <CafeList switchView={switchView} />;
       case "fastfood":
         return <FastfoodList switchView={switchView} />;
-        default :
-        return <Main />
+      default:
+        return <Main />;
+
     }
   };
+
+  console.log(curView)
+  console.log(switchView)
 
   const renderHeader = () => {
     return curView === "main" ? (
       <HeaderBar />
     ) : (
-      <CategoryBar curCategory={curView} />
+      <CategoryBar switchView={switchView} curView={curView} />
     );
   };
 
   return (
     <div className="home">
-      <SideBar />
-      <div className="home_main">
-        {renderHeader()}
-        {renderMain()}
+      <div className="home_sideBar">
+      <SideBar switchView={switchView}/>
       </div>
+      <div className="home_main">
+        <div className="main_header">
+        {renderHeader()}
+        </div>
+        <div className="main_content">
+        {renderMain()}
+        </div>
+      </div>
+      <div className="home_profile">
       <ProfileSub />
+      </div>
     </div>
   );
 };

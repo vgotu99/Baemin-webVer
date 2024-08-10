@@ -1,17 +1,13 @@
 import "./style/SideBar.css";
-import { useNavigate } from "react-router-dom";
-
 import Button from "./Button";
 
 
-const SideBar = () => {
-
-  const nav = useNavigate();
+const SideBar = ({switchView}) => {
 
   return (
     <div className="sideBar">
       <div className="sideBar_logo">
-        <img className="logo" src="/mainLogo.png" alt="" onClick={() => nav('/')}/>
+        <img className="logo" src="/mainLogo.png" alt="" onClick={() => switchView('main')}/>
       </div>
       <div className="sideBar_button">
         <Button type={'sideBar'} text={'주소'} imgType={'adress'} />

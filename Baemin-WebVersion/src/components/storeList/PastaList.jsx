@@ -1,12 +1,17 @@
 import StoreListForm from "../StoreListForm";
 import { stores } from "../StoreList";
+import Button from "../Button";
 
 const PastaList = ({ switchView }) => {
   const pastaStores = stores.filter((store) => store.sells.includes("pasta"));
 
   return (
     <div>
-      <button onClick={() => switchView("main")}>메인으로 돌아가기</button>
+      <Button
+        onClick={() => switchView("main")}
+        type={"goToMain"}
+        text={"메인으로 돌아가기"}
+      />
       {pastaStores.map((store) => (
         <StoreListForm
           key={store.id}

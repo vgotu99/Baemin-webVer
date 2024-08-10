@@ -1,12 +1,9 @@
 .profileSub {
-    background-color: #2ed3ce;
     margin-top: 50px;
     padding: 20px;
     width: 250px;
-    height: 340px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-radius:10px;
-
 }
