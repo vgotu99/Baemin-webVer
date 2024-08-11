@@ -39,6 +39,12 @@
   justify-content: center;
   flex-grow: 1;
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.main_content::-webkit-scrollbar {
+  display: none;
 }
 
 .main_header {
@@ -47,4 +53,5 @@
   justify-content: center;
   position: sticky;
   top: 0;
+  z-index: 2;
 }

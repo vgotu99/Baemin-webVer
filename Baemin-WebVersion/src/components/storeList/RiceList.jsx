@@ -7,11 +7,6 @@ const RiceList = ({ switchView }) => {
 
   return (
     <div>
-      <Button
-        onClick={() => switchView("main")}
-        type={"goToMain"}
-        text={"메인으로 돌아가기"}
-      />
       {riceStores.map((store) => (
         <StoreListForm
           key={store.id}

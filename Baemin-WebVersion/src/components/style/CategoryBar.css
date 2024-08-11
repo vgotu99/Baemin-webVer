@@ -1,12 +1,11 @@
 .categoryBar {
-    margin: 10px 0px 20px 0px;
-    width: 80%;
-    
+  margin: 10px 0px 10px 0px;
+  width: 80%;
 }
 
 .categoryBar div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 }

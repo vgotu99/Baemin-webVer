@@ -7,11 +7,6 @@ const JjigaeList = ({ switchView }) => {
 
   return (
     <div>
-      <Button
-        onClick={() => switchView("main")}
-        type={"goToMain"}
-        text={"메인으로 돌아가기"}
-      />
       {jjigaeStores.map((store) => (
         <StoreListForm
           key={store.id}

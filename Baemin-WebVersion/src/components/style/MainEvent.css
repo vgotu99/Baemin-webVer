@@ -1,12 +1,12 @@
 .mainEvent {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .mainEvent div img {
-    width: 100%;
+  width: 100%;
 }
 
 .mainEvent div {
-    width: 800px;
+  width: 800px;
 }

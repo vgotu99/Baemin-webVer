@@ -50,6 +50,15 @@
     
 }
 
+.button_goToMain {
+  margin-top: 20px;
+  background-color: #2ed3ce;
+  font-size: 18px;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+}
+
 .button_per1 {
   background-color: #2ed3ce;
 }

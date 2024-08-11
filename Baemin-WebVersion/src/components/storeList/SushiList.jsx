@@ -7,11 +7,6 @@ const SushiList = ({ switchView }) => {
 
   return (
     <div>
-      <Button
-        onClick={() => switchView("main")}
-        type={"goToMain"}
-        text={"메인으로 돌아가기"}
-      />
       {sushiStores.map((store) => (
         <StoreListForm
           key={store.id}

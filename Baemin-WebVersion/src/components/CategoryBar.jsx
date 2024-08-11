@@ -20,7 +20,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("per1")}
             type={"categoryBar"}
-            nowCategory={curView}
+            nowCategory={curView === "per1" ? "per1" : ""}
             text={"1인분"}
           />
         </div>
@@ -28,7 +28,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("bossam")}
             type={"categoryBar"}
-            nowCategory={curView}
+            nowCategory={curView === "bossam" ? "bossam" : ""}
             text={"족발·보쌈"}
           />
         </div>
@@ -36,7 +36,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("jjigae")}
             type={"categoryBar"}
-            nowCategory={curView}
+            nowCategory={curView === "jjigae" ? "jjigae" : ""}
             text={"찜·탕·찌개"}
           />
         </div>
@@ -44,6 +44,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("sushi")}
             type={"categoryBar"}
+            nowCategory={curView === "sushi" ? "sushi" : ""}
             text={"돈까스·회·일식"}
           />
         </div>
@@ -51,6 +52,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("pizza")}
             type={"categoryBar"}
+            nowCategory={curView === "pizza" ? "pizza" : ""}
             text={"피자"}
           />
         </div>
@@ -58,6 +60,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("meat")}
             type={"categoryBar"}
+            nowCategory={curView === "" ? "" : ""}
             text={"고기·구이"}
           />
         </div>
@@ -65,6 +68,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("night")}
             type={"categoryBar"}
+            nowCategory={curView === "night" ? "night" : ""}
             text={"야식"}
           />
         </div>
@@ -72,6 +76,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("pasta")}
             type={"categoryBar"}
+            nowCategory={curView === "pasta" ? "pasta" : ""}
             text={"양식"}
           />
         </div>
@@ -79,6 +84,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("chicken")}
             type={"categoryBar"}
+            nowCategory={curView === "chicken" ? "chicken" : ""}
             text={"치킨"}
           />
         </div>
@@ -86,6 +92,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("jjajang")}
             type={"categoryBar"}
+            nowCategory={curView === "jjajang" ? "jjajang" : ""}
             text={"중식"}
           />
         </div>
@@ -93,6 +100,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("asian")}
             type={"categoryBar"}
+            nowCategory={curView === "asian" ? "asian" : ""}
             text={"아시안"}
           />
         </div>
@@ -100,6 +108,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("rice")}
             type={"categoryBar"}
+            nowCategory={curView === "rice" ? "rice" : ""}
             text={"백반·죽·국수"}
           />
         </div>
@@ -107,6 +116,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("lunchbox")}
             type={"categoryBar"}
+            nowCategory={curView === "lunchbox" ? "lunchbox" : ""}
             text={"도시락"}
           />
         </div>
@@ -114,6 +124,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("tteokbokki")}
             type={"categoryBar"}
+            nowCategory={curView === "tteokbokki" ? "tteokbokki" : ""}
             text={"분식"}
           />
         </div>
@@ -121,6 +132,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("cafe")}
             type={"categoryBar"}
+            nowCategory={curView === "cafe" ? "cafe" : ""}
             text={"카페"}
           />
         </div>
@@ -128,10 +140,16 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("fastfood")}
             type={"categoryBar"}
+            nowCategory={curView === "fastfood" ? "fastfood" : ""}
             text={"패스트푸드"}
           />
         </div>
       </Slider>
+      <Button
+        onClick={() => switchView("main")}
+        type={"goToMain"}
+        text={"< 뒤로가기"}
+      />
     </div>
   );
 };

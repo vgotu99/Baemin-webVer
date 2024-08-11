@@ -1,5 +1,5 @@
 import "./style/Home.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeaderBar from "../components/HeaderBar";
 import ProfileSub from "../components/ProfileSub";
 import Main from "../components/Main";
@@ -21,12 +21,36 @@ import LunchboxList from "../components/storeList/LunchboxList";
 import TteokbokkiList from "../components/storeList/Tteokbokki";
 import CafeList from "../components/storeList/CafeList";
 import FastfoodList from "../components/storeList/FastfoodList";
+import Button from "../components/Button";
 
 const Home = () => {
   const [curView, setCurView] = useState("main");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState("0");
+
+  const controlNavBar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavBar);
+
+      return () => {
+        window.removeEventListener("scroll", controlNavBar);
+      };
+    }
+  }, [lastScrollY]);
 
   const switchView = (view) => {
-    setCurView(view)
+    setCurView(view);
   };
 
   const renderMain = () => {
@@ -67,36 +91,31 @@ const Home = () => {
         return <FastfoodList switchView={switchView} />;
       default:
         return <Main />;
-
     }
   };
-
-  console.log(curView)
-  console.log(switchView)
 
   const renderHeader = () => {
     return curView === "main" ? (
       <HeaderBar />
     ) : (
-      <CategoryBar switchView={switchView} curView={curView} />
+      <CategoryBar
+        switchView={switchView}
+        curView={curView}
+      />
     );
   };
 
   return (
     <div className="home">
       <div className="home_sideBar">
-      <SideBar switchView={switchView}/>
+        <SideBar switchView={switchView} />
       </div>
       <div className="home_main">
-        <div className="main_header">
-        {renderHeader()}
-        </div>
-        <div className="main_content">
-        {renderMain()}
-        </div>
+        <div className="main_header">{renderHeader()}</div>
+        <div className="main_content">{renderMain()}</div>
       </div>
       <div className="home_profile">
-      <ProfileSub />
+        <ProfileSub />
       </div>
     </div>
   );
