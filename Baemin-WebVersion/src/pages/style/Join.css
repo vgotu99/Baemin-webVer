@@ -1,0 +1,19 @@
+.join {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+
+.join_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 700px;
+}
+
+.input_sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

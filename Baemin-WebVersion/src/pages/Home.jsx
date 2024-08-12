@@ -1,5 +1,5 @@
 import "./style/Home.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HeaderBar from "../components/HeaderBar";
 import ProfileSub from "../components/ProfileSub";
 import Main from "../components/Main";
@@ -25,29 +25,6 @@ import Button from "../components/Button";
 
 const Home = () => {
   const [curView, setCurView] = useState("main");
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState("0");
-
-  const controlNavBar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavBar);
-
-      return () => {
-        window.removeEventListener("scroll", controlNavBar);
-      };
-    }
-  }, [lastScrollY]);
 
   const switchView = (view) => {
     setCurView(view);

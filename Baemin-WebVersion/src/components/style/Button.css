@@ -107,3 +107,38 @@
 .button_fastfood {
   background-color: #2ed3ce;
 }
+
+.button_join {
+  background-color: white;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.button_join > img {
+  width: 500px;
+}
+
+.button_join_subBtn {
+  background-color: white;
+  font-size: 16px;
+  color: #25a7a2;
+  text-decoration: underline;
+}
+
+.button_join_mainBtn {
+  background-color: #2ed3ce;
+  width: 312px;
+  height: 53px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button_join_addressBtn {
+  background-color: #2ed3ce;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}

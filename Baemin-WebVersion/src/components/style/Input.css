@@ -1,0 +1,52 @@
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px 5px 5px 5px;
+  transition: border-color 0.3s;
+  width: 300px;
+  height: 26px;
+}
+
+.input-container.focused {
+  border-color: #2bc1bc; /* 네이버 녹색 */
+}
+
+.input-container input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-size: 16px;
+  height: 16px;
+}
+
+.input-container label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  /* transform: translateY(-50%);*/
+  transition: all 0.3s;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
+}
+
+.input-container.focused label {
+  top: 0;
+  left: 5px;
+  font-size: 12px;
+  color: #2ed3ce;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.input-container.has-input label {
+  top: 0;
+  left: 5px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0 5px;
+}
