@@ -1,12 +1,13 @@
+import './StoreList.css'
 import StoreListForm from "../StoreListForm";
 import { stores } from "../StoreList";
-import Button from "../Button";
+
 
 const TteokbokkiList = ({ switchView }) => {
   const tteokbokkiStores = stores.filter((store) => store.sells.includes("tteokbokki"));
 
   return (
-    <div>
+    <div className="storeList">
       {tteokbokkiStores.map((store) => (
         <StoreListForm
           key={store.id}

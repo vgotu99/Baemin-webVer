@@ -1,13 +1,12 @@
-// id
-// pw
-// 닉네임
-// 주소
-// [체크박스] 해당 회원가입 폼에 입력하신 데이터는 모두 localStorage에 저장되는 데이터입니다. 따라서  평소에 사용하지 않는 id와 pw를 사용하시길 바랍니다.
-import "./style/SignUp.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
 import Button from "./Button";
+// id
+// pw
+// 닉네임
+// 주소
+// [체크박스] 해당 회원가입 폼에 입력하신 데이터는 모두 localStorage에 저장되는 데이터입니다. 따라서 평소에 사용하지 않는 id와 pw를 사용하시길 바랍니다.
 
 const SignUp = ({ switchJoin }) => {
   const [id, setId] = useState("");

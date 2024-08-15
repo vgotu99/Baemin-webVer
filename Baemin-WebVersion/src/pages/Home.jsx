@@ -22,6 +22,7 @@ import TteokbokkiList from "../components/storeList/Tteokbokki";
 import CafeList from "../components/storeList/CafeList";
 import FastfoodList from "../components/storeList/FastfoodList";
 import Button from "../components/Button";
+import { stores } from "../components/StoreList";
 
 const Home = () => {
   const [curView, setCurView] = useState("main");
@@ -29,6 +30,10 @@ const Home = () => {
   const switchView = (view) => {
     setCurView(view);
   };
+
+  const storeType = stores.map(store => store.type)
+  const whichStore = stores.filter((store) => store.type.includes(storeType))
+
 
   const renderMain = () => {
     switch (curView) {

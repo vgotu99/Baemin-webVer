@@ -47,7 +47,7 @@
     font-size: 18px;
     width: 120px;
     height: 50px;
-    
+    font-weight: bold;
 }
 
 .button_goToMain {
@@ -57,6 +57,7 @@
   border-radius: 10px;
   width: 100px;
   height: 40px;
+  font-weight: bold;
 }
 
 .button_per1 {
@@ -86,7 +87,7 @@
 .button_chicken {
   background-color: #2ed3ce;
 }
-.button_jjajng {
+.button_jjajang {
   background-color: #2ed3ce;
 }
 .button_asian {
@@ -111,11 +112,11 @@
 .button_join {
   background-color: white;
   border: none;
-  margin-bottom: 20px;
+  width: 33%;
 }
 
 .button_join > img {
-  width: 500px;
+  width: 100%;
 }
 
 .button_join_subBtn {
@@ -127,7 +128,7 @@
 
 .button_join_mainBtn {
   background-color: #2ed3ce;
-  width: 312px;
+  width: 322px;
   height: 53px;
   border-radius: 10px;
   font-size: 18px;
@@ -141,4 +142,33 @@
   font-size: 16px;
   border-radius: 10px;
   margin-bottom: 5px;
+}
+
+.button_profileSub_join {
+  background-color: white;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #2ed3ce;
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.button_profile {
+  width: 100px;
+  font-size: 22px;
+  background-color: white;
+}
+
+.button_profile > img {
+  width: 70px;
+}
+
+.button_info {
+  width: 6%;
+  background-color: white;
+}
+
+.button_info > img {
+  width: 100%;
 }

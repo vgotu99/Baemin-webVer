@@ -1,11 +1,13 @@
 import "./style/Join.css";
 import { useState } from "react";
-import JoinHeader from "../components/JoinHeader";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 const Join = () => {
   const [curJoin, setCurJoin] = useState("login");
+  const nav = useNavigate()
 
   const switchJoin = (join) => {
     setCurJoin(join);
@@ -24,9 +26,9 @@ const Join = () => {
 
   return (
     <div className="join">
+        <Button onClick={() => nav("/")} type={"join"} imgType={"mainLogo"} />
       <div className="join_wrapper">
-      <JoinHeader />
-      {renderJoin()}
+        {renderJoin()}
       </div>
     </div>
   );

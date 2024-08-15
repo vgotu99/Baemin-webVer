@@ -1,0 +1,64 @@
+.storeInfoHeaderForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 44%;
+  font-size: 18px;
+  font-weight: 500;
+  height: 22%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+}
+
+.header_main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main_info1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding-left: 6%;
+  gap: 10%;
+  width: 100%;
+}
+
+.main_info1 > h2 {
+    width: 40%;
+    text-align: center;
+}
+
+.main_info1 > div {
+    width: 10%;
+    text-align: center;
+}
+
+.main_info2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10%;
+  width: 100%;
+}
+
+.header_sub {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+  margin: 2% 0 2% 0;
+}
+
+.header_sub > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+}

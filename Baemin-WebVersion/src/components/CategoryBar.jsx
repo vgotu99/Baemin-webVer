@@ -60,7 +60,7 @@ const CategoryBar = ({ switchView, curView }) => {
           <Button
             onClick={() => switchView("meat")}
             type={"categoryBar"}
-            nowCategory={curView === "" ? "" : ""}
+            nowCategory={curView === "meat" ? "meat" : ""}
             text={"고기·구이"}
           />
         </div>

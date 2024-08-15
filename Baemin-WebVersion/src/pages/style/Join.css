@@ -1,5 +1,6 @@
 .join {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100dvh;
@@ -9,7 +10,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 700px;
+    width: 33%;
+    height: 60%;
 }
 
 .input_sub {

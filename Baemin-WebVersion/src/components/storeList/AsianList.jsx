@@ -1,6 +1,6 @@
-import { stores } from "../StoreList";
+import './StoreList.css'
 import StoreListForm from "../StoreListForm";
-import Button from "../Button";
+import { stores } from "../StoreList";
 
 const AsianList = ({ switchView }) => {
   const asianStores = stores.filter((store) => store.sells.includes("asian"));

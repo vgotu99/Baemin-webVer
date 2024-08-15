@@ -1,6 +1,7 @@
+import './StoreList.css'
 import StoreListForm from "../StoreListForm";
 import { stores } from "../StoreList";
-import Button from "../Button";
+
 
 const LunchboxList = ({ switchView }) => {
   const lunchboxStores = stores.filter((store) =>
@@ -8,7 +9,7 @@ const LunchboxList = ({ switchView }) => {
   );
 
   return (
-    <div>
+    <div className='storeList'>
       {lunchboxStores.map((store) => (
         <StoreListForm
           key={store.id}

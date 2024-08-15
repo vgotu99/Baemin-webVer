@@ -1,6 +1,7 @@
 .categoryBar {
-  margin: 10px 0px 10px 0px;
   width: 80%;
+  background-color: white;
+  height: 125px;
 }
 
 .categoryBar div {

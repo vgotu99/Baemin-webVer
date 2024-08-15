@@ -25,7 +25,7 @@ const Login = ({ switchJoin }) => {
   console.log(id);
 
   return (
-    <div>
+    <div className="login">
       <div className="input_sub">
         <p>아직 회원이 아니신가요?</p>
         <Button

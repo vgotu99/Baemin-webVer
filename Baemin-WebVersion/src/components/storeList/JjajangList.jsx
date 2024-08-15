@@ -1,12 +1,13 @@
+import './StoreList.css'
 import StoreListForm from "../StoreListForm";
 import { stores } from "../StoreList";
-import Button from "../Button";
+
 
 const JjajangList = ({ switchView }) => {
   const jjajangStores = stores.filter((store) => store.sells.includes("jjajang"));
 
   return (
-    <div>
+    <div className='storeList'>
       {jjajangStores.map((store) => (
         <StoreListForm
           key={store.id}

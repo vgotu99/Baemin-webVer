@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
-  gap: 50px;
+  justify-content: center;
+  gap: 5%;
   width: 100%;
   height: 70px;
   background-color: #2ed3ce;
@@ -12,16 +12,17 @@
 }
 
 .adress {
-  width: 150px;
+  width: 15%;
     padding-left: 30px;
   font-size: 22px;
 }
 
 .headerBar > input {
-  width: 500px;
+  width: 50%;
   height: 45px;
   font-size: 18px;
   border: none;
   padding-left: 30px;
+  margin-right: 17%;
   border-radius: 10px;
 }

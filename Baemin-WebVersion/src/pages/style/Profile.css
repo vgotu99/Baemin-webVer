@@ -1,0 +1,39 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    gap: 5%;
+}
+
+.profile > button {
+    margin-bottom: 0;
+}
+
+.profile_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    width: 33%;
+    height: 15%;
+    gap: 15%;
+}
+
+.profile_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15%;
+    width: 100%;
+}
+
+.profile_orderList {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    width: 33%;
+    height: 40%
+}

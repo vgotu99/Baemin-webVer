@@ -1,12 +1,13 @@
+import './StoreList.css'
 import StoreListForm from "../StoreListForm";
 import { stores } from "../StoreList";
-import Button from "../Button";
+
 
 const NightList = ({ switchView }) => {
   const nightStores = stores.filter((store) => store.sells.includes("night"));
 
   return (
-    <div>
+    <div className="storeList">
       {nightStores.map((store) => (
         <StoreListForm
           key={store.id}
