@@ -35,7 +35,7 @@ const Profile = ({ switchView }) => {
         <div>더 귀한분, {userData.nickname}님</div>
         <div className="profile_btn">
           <Button type={"profile"} text={"주문내역"} imgType={"orderList"} />
-          <Button type={"profile"} text={"나의찜"} imgType={"love"} />
+          <Button type={"profile"} text={"나의찜"} imgType={"likeOn"} />
           <Button type={"profile"} text={"리뷰관리"} imgType={"star"} />
         </div>
       </div>

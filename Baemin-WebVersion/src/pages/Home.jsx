@@ -31,9 +31,8 @@ const Home = () => {
     setCurView(view);
   };
 
-  const storeType = stores.map(store => store.type)
-  const whichStore = stores.filter((store) => store.type.includes(storeType))
-
+  const storeType = stores.map((store) => store.type);
+  const whichStore = stores.filter((store) => store.type.includes(storeType));
 
   const renderMain = () => {
     switch (curView) {
@@ -80,10 +79,7 @@ const Home = () => {
     return curView === "main" ? (
       <HeaderBar />
     ) : (
-      <CategoryBar
-        switchView={switchView}
-        curView={curView}
-      />
+      <CategoryBar switchView={switchView} curView={curView} />
     );
   };
 
@@ -97,6 +93,7 @@ const Home = () => {
         <div className="main_content">{renderMain()}</div>
       </div>
       <div className="home_profile">
+        <Button type={"home_cart"} imgType={"cart"} />
         <ProfileSub />
       </div>
     </div>

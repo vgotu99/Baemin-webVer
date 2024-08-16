@@ -172,3 +172,25 @@
 .button_info > img {
   width: 100%;
 }
+
+.button_home_cart {
+  width: 60px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.button_home_cart > img {
+  width: 100%;
+}
+
+.button_store_cart {
+  width: 60px;
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  right: 350px;
+}
+
+.button_store_cart > img {
+  width: 100%;
+}
