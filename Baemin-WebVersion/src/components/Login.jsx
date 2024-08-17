@@ -22,8 +22,6 @@ const Login = ({ switchJoin }) => {
     }
   };
 
-  console.log(id);
-
   return (
     <div className="login">
       <div className="input_sub">

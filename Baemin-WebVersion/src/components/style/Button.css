@@ -186,11 +186,25 @@
 .button_store_cart {
   width: 60px;
   background-color: white;
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 350px;
 }
 
 .button_store_cart > img {
   width: 100%;
+}
+
+.button_profileSub_like {
+  background-color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 10px;
+}
+
+.button_profileSub_more {
+  background-color: white;
+  font-size: 14px;
 }

@@ -36,15 +36,16 @@
 
 .main_content {
   width: 850px;
-  height: 100dvh;
+  height: calc(100dvh - 70px);
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  position: absolute;
+  position: fixed;
   top: 70px;
+  overflow-y: auto;
+
   z-index: 1;
 }
 
@@ -54,6 +55,7 @@
 
 .main_header {
   width: 1000px;
+  height: 125px;
   display: flex;
   justify-content: center;
   position: fixed;

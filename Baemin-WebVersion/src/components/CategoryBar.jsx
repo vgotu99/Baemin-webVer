@@ -148,7 +148,7 @@ const CategoryBar = ({ switchView, curView }) => {
       <Button
         onClick={() => switchView("main")}
         type={"goToMain"}
-        text={"< 뒤로가기"}
+        text={"< 돌아가기"}
       />
     </div>
   );

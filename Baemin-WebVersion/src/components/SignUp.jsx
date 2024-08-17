@@ -14,6 +14,7 @@ const SignUp = ({ switchJoin }) => {
   const [nickname, setNickname] = useState("");
   const [address, setAddress] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [bname, setBname] = useState('')
   const [error, setError] = useState("");
 
   const nav = useNavigate();
@@ -32,6 +33,7 @@ const SignUp = ({ switchJoin }) => {
       oncomplete: function (data) {
         setPostcode(data.zonecode);
         setAddress(data.address);
+        setBname(data.bname)
       },
     }).open();
   };
@@ -42,7 +44,7 @@ const SignUp = ({ switchJoin }) => {
       return;
     }
 
-    const userData = { id, password, nickname, postcode, address };
+    const userData = { id, password, nickname, postcode, address, bname };
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
     if (users.some((user) => user.id === id)) {

@@ -1,34 +1,39 @@
 import "./style/StoreInfo.css";
-import { stores } from "../components/StoreList";
-import { useState, useRef } from "react";
+import { stores } from "../components/StoreListData";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import StoreInfoHeaderForm from "../components/StoreInfoHeaderForm";
 import StoreInfoMenuForm from "../components/StoreInfoMenuForm";
 import Button from "../components/Button";
 
 const StoreInfo = () => {
-  const [like, setLike] = useState(0);
-  const [order, setOrder] = useState("");
+  const [isLiked, setIsLiked] = useState(false);
+  const [cart, setCart] = useState("");
   const { id } = useParams();
-  const likeRef = useRef(1);
 
   const store = stores.find((s) => s.id === parseInt(id));
 
+  useEffect(() => {
+    const userLike = JSON.parse(localStorage.getItem("userLike")) || {};
+    setIsLiked(userLike[store.id] || false);
+  }, [store.id]);
+
   const onClickLike = () => {
-    setLike(likeRef.current++);
+    const newLikeState = !isLiked;
+    setIsLiked(newLikeState);
 
-    const userLikeData = { id, like: likeRef.current };
-    const userLike = JSON.parse(localStorage.getItem("userLike") || "[]");
-
-    const existIndex = userLike.findIndex((item) => item.id === id);
-    console.log(existIndex);
-
-    if (existIndex !== -1) {
-      userLike[existIndex].like = userLikeData.like;
-    } else {
-      userLike.push(userLikeData);
-    }
+    const userLike = JSON.parse(localStorage.getItem("userLike")) || {};
+    userLike[store.id] = newLikeState;
     localStorage.setItem("userLike", JSON.stringify(userLike));
+  };
+
+  const putInCart = () => {
+    const products = store.products;
+    const cartData = { id, products };
+    const userCart = JSON.parse(localStorage.getItem('userCart'))
+
+    userCart.push(cartData)
+    localStorage.setItem('userCart', JSON.stringify(userCart))
   };
 
   if (!store) {
@@ -39,10 +44,10 @@ const StoreInfo = () => {
     <div className="storeInfo">
       <StoreInfoHeaderForm
         onClickLike={onClickLike}
-        like={like}
         store={store}
+        isLiked={isLiked}
       />
-      <StoreInfoMenuForm products={store.products} store={store} />
+      <StoreInfoMenuForm products={store.products} store={store} putInCart={putInCart}/>
       <Button type={"store_cart"} imgType={"cart"} />
     </div>
   );

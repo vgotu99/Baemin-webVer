@@ -3,15 +3,46 @@ import Home from "./pages/Home";
 import Join from "./pages/Join";
 import Profile from "./pages/Profile";
 import StoreInfo from "./pages/StoreInfo";
-import { stores } from "./components/StoreList";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Like from "./pages/Like";
+import { stores } from "./components/StoreListData";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
       <Route path="/join" element={<Join />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/store/:id" element={<StoreInfo />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/store/:id"
+        element={
+          <ProtectedRoute>
+            <StoreInfo />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/like"
+        element={
+          <ProtectedRoute>
+            <Like />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }

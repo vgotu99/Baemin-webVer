@@ -2,7 +2,7 @@ import "./style/StoreInfoHeaderForm.css";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
-const StoreInfoHeaderForm = ({ store, onClickLike }) => {
+const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
   const nav = useNavigate();
 
   return (
@@ -10,16 +10,16 @@ const StoreInfoHeaderForm = ({ store, onClickLike }) => {
       <div className="header_main">
         <div className="main_info1">
           <Button
-            onClick={() => nav("/")}
+            onClick={() => nav('/')}
             type={"goToMain"}
-            text={"< 뒤로 가기"}
+            text={"< 돌아가기"}
           />
           <h2>{store.name}</h2>
           <div>⭐️ {store.star}</div>
         </div>
         <div className="main_info2">
           <Button type={"info"} imgType={"phone"} />
-          <Button onClick={onClickLike} type={"info"} imgType={"likeOn"} />
+          <Button onClick={onClickLike} type={"info"} imgType={isLiked ? 'likeOn' : 'like'} />
           <Button type={"info"} imgType={"share"} />
         </div>
       </div>

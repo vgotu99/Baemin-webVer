@@ -1,11 +1,12 @@
 import "./style/ProfileSub.css";
+import { stores } from "./StoreListData";
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
 const ProfileSub = () => {
   const [userData, setUserData] = useState("");
-  const [userLike, setUserLike] = useState();
+  const [likedStore, setLikedStore] = useState([]);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -15,27 +16,48 @@ const ProfileSub = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const userLike = JSON.parse(localStorage.getItem("userLike")) || {};
+    const likedStore = stores.filter((store) => userLike[store.id]);
+    setLikedStore(likedStore);
+  }, []);
+
+  const displayedLikedStore = likedStore.slice(0, 5)
+
   return (
     <div className="profileSub">
       <div>
-        <div>
-          {userData ? (
-            `더 귀한분, ${userData.nickname}님`
-          ) : (
+        {userData ? (
+          <div>
+            <h4>더 귀한분, {userData.nickname}님</h4>{" "}
+            <h5>회원님이 찜한 가게</h5>
+            {displayedLikedStore.map((store) => (
+              <div key={store.id}>
+                <Button
+                  onClick={() => nav(`/store/${store.id}`)}
+                  text={store.name}
+                  type={"profileSub_like"}
+                />
+              </div>
+            ))}
+            {likedStore.length > 5 && (
+              <Button onClick={() => nav('/like')}
+              text={'내가 찜한 가게 더보기..'}
+              type={'profileSub_more'}
+              />
+            )}
+          </div>
+        ) : (
+          <div>
             <Button
               text={"로그인 / 회원가입"}
               type={"profileSub_join"}
               onClick={() => nav("/join")}
             />
-          )}
-        </div>
+            <h4>로그인이 필요합니다</h4>
+          </div>
+        )}
       </div>
-      <h5>회원이 찜한 가게</h5>
-      <div>가게1</div>
-      <div>가게2</div>
-      <div>가게3</div>
-      <div>가게4</div>
-      <div>더보기..</div>
     </div>
   );
 };
