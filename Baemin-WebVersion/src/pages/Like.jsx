@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { stores } from "../components/StoreListData";
 import { useNavigate } from "react-router-dom";
 import StoreListForm from "../components/StoreListForm";
+import Button from "../components/Button";
 
 const Like = () => {
   const [likedStore, setLikedStore] = useState([]);
@@ -17,6 +18,13 @@ const Like = () => {
   return (
     <div className="like">
       <div className="like_header">
+        <div className="like_goToMain">
+          <Button
+            onClick={() => nav(-1)}
+            type={"goToMain"}
+            text={"< 돌아가기"}
+          />
+        </div>
         <div className="header_text">내가 찜한 가게</div>
       </div>
       <div className="like_main">

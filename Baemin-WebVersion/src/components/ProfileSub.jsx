@@ -30,7 +30,7 @@ const ProfileSub = () => {
         {userData ? (
           <div>
             <h4>더 귀한분, {userData.nickname}님</h4>{" "}
-            <h5>회원님이 찜한 가게</h5>
+            <h5>회원님이 찜한 가게 👇</h5>
             {displayedLikedStore.map((store) => (
               <div key={store.id}>
                 <Button

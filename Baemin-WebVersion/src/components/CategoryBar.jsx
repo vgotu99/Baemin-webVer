@@ -145,11 +145,13 @@ const CategoryBar = ({ switchView, curView }) => {
           />
         </div>
       </Slider>
+      <div className="categoryBar_goToMain">
       <Button
         onClick={() => switchView("main")}
         type={"goToMain"}
         text={"< 돌아가기"}
       />
+      </div>
     </div>
   );
 };

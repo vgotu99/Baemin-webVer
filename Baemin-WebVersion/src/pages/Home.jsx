@@ -1,5 +1,6 @@
 import "./style/Home.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HeaderBar from "../components/HeaderBar";
 import ProfileSub from "../components/ProfileSub";
 import Main from "../components/Main";
@@ -11,6 +12,22 @@ import StoreList from "../components/StoreList";
 
 const Home = () => {
   const [curView, setCurView] = useState("main");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const nav = useNavigate();
+
+  const handleSearch = (term) => {
+    const result = stores.filter(
+      (store) =>
+        store.name.toLowerCase().includes(term.toLowerCase()) ||
+        store.products.some((products) =>
+          products.name.toLowerCase().includes(term.toLowerCase())
+        )
+    );
+
+    setSearchResult(result)
+    setCurView('search')
+  };
 
   const switchView = (view) => {
     setCurView(view);
@@ -48,7 +65,11 @@ const Home = () => {
         <div className="main_content">{renderMain()}</div>
       </div>
       <div className="home_profile">
-        <Button type={"home_cart"} imgType={"cart"} />
+        <Button
+          onClick={() => nav("/cart")}
+          type={"home_cart"}
+          imgType={"cart"}
+        />
         <ProfileSub />
       </div>
     </div>

@@ -10,7 +10,7 @@ const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
       <div className="header_main">
         <div className="main_info1">
           <Button
-            onClick={() => nav('/')}
+            onClick={() => nav(-1)}
             type={"goToMain"}
             text={"< 돌아가기"}
           />

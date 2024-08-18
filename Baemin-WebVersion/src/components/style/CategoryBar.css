@@ -1,12 +1,13 @@
 .categoryBar {
+  margin-top: 10px;
   width: 80%;
-  background-color: white;
-  height: 125px;
+  height: 115px;
 }
 
-.categoryBar div {
+.categoryBar_goToMain {
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
+  justify-content: start;
+  align-items: start;
+  height: 40px;
 }

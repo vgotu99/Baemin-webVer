@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('../public/BMHANNAPro.ttf');
+}
+
+body * {
+    font-family: 'BMHANNAPro';
+}

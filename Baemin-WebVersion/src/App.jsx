@@ -5,7 +5,8 @@ import Profile from "./pages/Profile";
 import StoreInfo from "./pages/StoreInfo";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Like from "./pages/Like";
-import { stores } from "./components/StoreListData";
+import Cart from "./pages/Cart";
+import OrderList from "./pages/OrderList";
 
 function App() {
   return (
@@ -40,6 +41,22 @@ function App() {
         element={
           <ProtectedRoute>
             <Like />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/orderlist"
+        element={
+          <ProtectedRoute>
+            <OrderList />
           </ProtectedRoute>
         }
       />

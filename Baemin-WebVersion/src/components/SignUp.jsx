@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Input from "./Input";
 import Button from "./Button";
 // id
@@ -17,7 +16,6 @@ const SignUp = ({ switchJoin }) => {
   const [bname, setBname] = useState('')
   const [error, setError] = useState("");
 
-  const nav = useNavigate();
 
   useEffect(() => {
     const script = document.createElement("script");

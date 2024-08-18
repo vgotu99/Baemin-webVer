@@ -18,7 +18,12 @@ const SideBar = ({ switchView }) => {
       <div className="sideBar_button">
         <Button type={"sideBar"} text={"주소"} imgType={"adress"} />
         <Button type={"sideBar"} text={"알림"} imgType={"alert"} />
-        <Button type={"sideBar"} text={"장바구니"} imgType={"cart"} />
+        <Button
+          onClick={() => nav("/cart")}
+          type={"sideBar"}
+          text={"장바구니"}
+          imgType={"cart"}
+        />
         <Button
           onClick={() => nav("/like")}
           type={"sideBar"}

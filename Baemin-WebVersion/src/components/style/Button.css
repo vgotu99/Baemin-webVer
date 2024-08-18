@@ -6,6 +6,7 @@
 .button_sideBar {
   padding: 10px;
   font-size: 18px;
+  font-weight: 550;
   background-color: #2ed3ce;
 
   display: flex;
@@ -31,6 +32,7 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
+  margin-top: 5%;
 }
 
 .button_mainItem > img {
@@ -51,7 +53,6 @@
 }
 
 .button_goToMain {
-  margin-top: 20px;
   background-color: #2ed3ce;
   font-size: 18px;
   border-radius: 10px;
@@ -207,4 +208,13 @@
 .button_profileSub_more {
   background-color: white;
   font-size: 14px;
+}
+
+.button_modal_btn {
+  background-color: #2ed3ce;
+  width: 600px;
+  height: 53px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }

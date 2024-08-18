@@ -3,10 +3,13 @@
   justify-content: center;
 }
 
-.mainEvent div img {
-  width: 100%;
+.mainEvent div {
+  width: 90%;
 }
 
-.mainEvent div {
-  width: 800px;
+.mainEvent div img {
+  width: 100%;
+  height: 100%;
 }
+
+

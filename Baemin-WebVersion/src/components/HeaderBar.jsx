@@ -1,15 +1,27 @@
-import './style/HeaderBar.css'
+import "./style/HeaderBar.css";
 
-const HeaderBar = () => {
-    const address = JSON.parse(localStorage.getItem('currentUser'))
+const HeaderBar = ({ onSearch }) => {
+  const address = JSON.parse(localStorage.getItem("currentUser"));
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const searchTerm = e.target.search.value;
+    onSearch(searchTerm);
+  };
 
-    return (
-        <div className='headerBar'>
-            <div className='adress'>{address.address}</div>
-            <input type="text" placeholder='🔎   원하시는 메뉴 혹은 가게명을 검색해주세요' />
-        </div>
-    )
-}
+  return (
+    <div className="headerBar">
+      <div className="adress">{address.address}</div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="search"
+          placeholder="🔎   원하시는 메뉴 혹은 가게명을 검색해주세요"
+        />
+        <button type="submit">검색</button>
+      </form>
+    </div>
+  );
+};
 
-export default HeaderBar
+export default HeaderBar;

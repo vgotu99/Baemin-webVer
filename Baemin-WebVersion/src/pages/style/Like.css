@@ -1,38 +1,43 @@
 .like {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .like_header {
-    width: 760px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0 30px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .3);
-    position: fixed;
-    top: 0;
-    background-color: white;
-    z-index: 2;
+  width: 760px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 30px 0 30px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+.like_goToMain {
+    margin-right: 180px;
 }
 
 .header_text {
-    font-size: 22px;
-    font-weight: bold;
-    background-color: #2ed3ce;
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #2ed3ce;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .like_main {
-    position: absolute;
-    top: 111px;
-    overflow-y: auto;
-    z-index: 1;
+  position: absolute;
+  top: 111px;
+  overflow-y: auto;
+  z-index: 1;
 }

@@ -35,14 +35,14 @@
 }
 
 .main_content {
-  width: 850px;
+  width: 50%;
   height: calc(100dvh - 70px);
   display: flex;
   justify-content: center;
   flex-grow: 1;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  position: fixed;
+  position: absolute;
   top: 70px;
   overflow-y: auto;
 
@@ -54,7 +54,7 @@
 }
 
 .main_header {
-  width: 1000px;
+  width: 50%;
   height: 125px;
   display: flex;
   justify-content: center;
