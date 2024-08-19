@@ -42,6 +42,7 @@ const SignUp = ({ switchJoin }) => {
       return;
     }
 
+
     const userData = { id, password, nickname, postcode, address, bname };
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 

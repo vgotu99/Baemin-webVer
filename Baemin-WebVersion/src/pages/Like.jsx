@@ -11,8 +11,15 @@ const Like = () => {
 
   useEffect(() => {
     const userLike = JSON.parse(localStorage.getItem("userLike"));
-    const likedStore = stores.filter((store) => userLike[store.id]);
-    setLikedStore(likedStore);
+    if (!userLike) {
+      setTimeout(() => {
+        alert("찜한 가게가 없습니다. 마음에 드는 가게를 찜해보세요!");
+        nav("/");
+      }, 500);
+    } else {
+      const likedStore = stores.filter((store) => userLike[store.id]);
+      setLikedStore(likedStore);
+    }
   }, []);
 
   return (

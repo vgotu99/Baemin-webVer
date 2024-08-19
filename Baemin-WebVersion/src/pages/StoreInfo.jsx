@@ -8,6 +8,7 @@ import Button from "../components/Button";
 
 const StoreInfo = () => {
   const [isLiked, setIsLiked] = useState(false);
+  // const [star, setStar] = useState([])
   const { id } = useParams();
   const nav = useNavigate()
 
@@ -42,7 +43,7 @@ const StoreInfo = () => {
         products={store.products}
         store={store}
       />
-      <Button onClick={() => nav('/cart')} type={"store_cart"} imgType={"cart"} />
+      <Button onClick={() => nav('/profile/cart')} type={"store_cart"} imgType={"cart"} />
     </div>
   );
 };

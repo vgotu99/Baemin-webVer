@@ -10,7 +10,14 @@ const Cart = () => {
 
   useEffect(() => {
     const userCart = JSON.parse(localStorage.getItem("userCart"));
-    if (userCart) {
+    if (!userCart) {
+      setTimeout(() => {
+        alert(
+          "장바구니에 담긴 메뉴가 없습니다. 메뉴를 장바구니에 담아 주문해보세요!"
+        );
+        nav("/");
+      }, 500);
+    } else {
       setCartItem(userCart);
 
       const total = userCart.reduce((acc, item) => {
@@ -25,34 +32,34 @@ const Cart = () => {
     const userCart = JSON.parse(localStorage.getItem("userCart"));
 
     if (!userCart) {
-      alert("상품을 추가해주세요.");
+      alert(
+        "장바구니에 담긴 메뉴가 없습니다. 메뉴를 장바구니에 담아 주문해보세요!"
+      );
       nav("/");
       return;
-    } 
-
-    const orderDate = new Date().toLocaleString()
-    const orderedList = {
-        items: userCart,
-        orderDate: orderDate
     }
 
+    const orderDate = new Date().toLocaleString();
+    const orderedList = {
+      items: userCart,
+      orderDate: orderDate,
+    };
 
-      let userOrderList = JSON.parse(localStorage.getItem("userOrderList")) || [];
-      userOrderList.push(orderedList)
-      localStorage.setItem("userOrderList", JSON.stringify(userOrderList));
+    let userOrderList = JSON.parse(localStorage.getItem("userOrderList")) || [];
+    userOrderList.push(orderedList);
+    localStorage.setItem("userOrderList", JSON.stringify(userOrderList));
 
-      localStorage.removeItem("userCart");
-      setCartItem([]);
-      setTotalPrice("0");
-      alert("상품이 주문되었습니다.");
-      nav("/");
-    
+    localStorage.removeItem("userCart");
+    setCartItem([]);
+    setTotalPrice("0");
+    alert("고객님의 메뉴가 주문되었습니다. 빨리 배달해드릴게요!");
+    nav("/");
   };
 
   return (
     <div className="cart">
       <div className="cart_header">
-      <div className="like_goToMain">
+        <div className="like_goToMain">
           <Button
             onClick={() => nav(-1)}
             type={"goToMain"}
@@ -77,6 +84,7 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+            
           </div>
         ))}
       </div>

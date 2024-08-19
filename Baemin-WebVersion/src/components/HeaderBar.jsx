@@ -6,7 +6,12 @@ const HeaderBar = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchTerm = e.target.search.value;
-    onSearch(searchTerm);
+
+    if (searchTerm.trim() === "") {
+      alert("검색어를 입력해주세요");
+    } else {
+      onSearch(searchTerm);
+    }
   };
 
   return (
@@ -16,9 +21,9 @@ const HeaderBar = ({ onSearch }) => {
         <input
           type="text"
           name="search"
-          placeholder="🔎   원하시는 메뉴 혹은 가게명을 검색해주세요"
+          placeholder="원하시는 메뉴 혹은 가게명을 검색해주세요"
         />
-        <button type="submit">검색</button>
+        <button type="submit">🔎</button>
       </form>
     </div>
   );

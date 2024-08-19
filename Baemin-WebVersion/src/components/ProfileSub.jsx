@@ -41,7 +41,7 @@ const ProfileSub = () => {
               </div>
             ))}
             {likedStore.length > 5 && (
-              <Button onClick={() => nav('/like')}
+              <Button onClick={() => nav('/profile/like')}
               text={'내가 찜한 가게 더보기..'}
               type={'profileSub_more'}
               />

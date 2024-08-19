@@ -218,3 +218,22 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.button_goToReview {
+  background-color: #2ed3ce;
+  font-size: 18px;
+  border-radius: 20px;
+  width: 120px;
+  height: 60px;
+  font-weight: bold;
+}
+
+.button_doneReview {
+  background-color: rgb(225, 225, 225);
+  font-size: 18px;
+  border-radius: 20px;
+  width: 120px;
+  height: 60px;
+  font-weight: bold;
+  cursor: default;
+}

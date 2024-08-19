@@ -77,31 +77,50 @@
   position: fixed;
   width: 600px;
   height: 65px;
+  margin-right: 10px;
   text-align: center;
-  background-color: white;
   z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 3%;
+  background-color: white;
 }
 
 .modal_content {
   width: 600px;
   position: relative;
   top: 65px;
-  margin-bottom: 134px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.content_wrapper {
+.content_box {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.content_text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
   width: 100%;
   height: 120px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .modal_store_name {
   font-size: 20px;
   font-weight: bold;
+}
+
+.content_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal_button_wrapper {
@@ -112,4 +131,24 @@
   justify-content: center;
   height: 68px;
   background-color: white;
+}
+
+
+.review-modal-star {
+  display: flex;
+  gap: 5px;
+}
+
+.review-modal-star > img {
+  cursor: pointer;
+  width: 30px;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.error-message img {
+  width: 30px;
 }

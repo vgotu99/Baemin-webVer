@@ -1,15 +1,18 @@
 import "./style/StoreList.css";
-import { stores } from "./StoreListData";
 import StoreListForm from "./StoreListForm";
 import { useNavigate } from "react-router-dom";
 
-const StoreList = ({ curView }) => {
-  const Stores = stores.filter((store) => store.sells.includes(curView));
-  const nav = useNavigate()
+const StoreList = ({ curView, stores }) => {
+  const filteredStores =
+    curView === "search"
+      ? stores
+      : stores.filter((store) => store.sells.includes(curView));
+
+  const nav = useNavigate();
 
   return (
     <div className="storeList">
-      {Stores.map((store) => (
+      {filteredStores.map((store) => (
         <StoreListForm
           key={store.id}
           storeName={store.name}

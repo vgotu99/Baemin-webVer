@@ -1,9 +1,61 @@
 import "./style/StoreInfoHeaderForm.css";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ReactModal from "react-modal";
 import Button from "./Button";
 
 const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
+  const [storeReviewedData, setStoreReviewedData] = useState([]);
+  const [isModalOpened, setIsModalOpened] = useState(false);
   const nav = useNavigate();
+
+  useEffect(() => {
+    const userReview = JSON.parse(localStorage.getItem("userReview"));
+
+    if (userReview) {
+      const filteredReview = userReview.filter(
+        (item) => item.storeId === store.id
+      );
+      setStoreReviewedData(filteredReview);
+    }
+    // storeReviewData.map((item) =>
+    //   {if (store.id === item.storeId) {
+    //     setStoreReviewData(storeReviewData)
+    //     console.log('데이터를 가져왔습니다')
+    //   }}
+    // )
+  }, []);
+
+  const openModal = () => {
+    setIsModalOpened(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpened(false);
+  };
+
+  const customStyles = {
+    overlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(255,255,255,.85)",
+      zIndex: "3",
+    },
+    content: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "start",
+      padding: "0 50px",
+      width: "600px",
+      height: "540px",
+      top: "calc(50dvh - 250px)",
+      left: "calc(50dvw - 325px)",
+      borderRadius: "20px",
+    },
+  };
 
   return (
     <div className="storeInfoHeaderForm">
@@ -15,11 +67,18 @@ const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
             text={"< 돌아가기"}
           />
           <h2>{store.name}</h2>
-          <div>⭐️ {store.star}</div>
+          <div onClick={() => openModal()}>
+            <img className="img" src="/starOn.png" />
+            {store.star}
+          </div>
         </div>
         <div className="main_info2">
           <Button type={"info"} imgType={"phone"} />
-          <Button onClick={onClickLike} type={"info"} imgType={isLiked ? 'likeOn' : 'like'} />
+          <Button
+            onClick={onClickLike}
+            type={"info"}
+            imgType={isLiked ? "likeOn" : "like"}
+          />
           <Button type={"info"} imgType={"share"} />
         </div>
       </div>
@@ -41,6 +100,35 @@ const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
           <div>{store.tip}</div>
         </div>
       </div>
+      {storeReviewedData.map((data) => (
+        <ReactModal
+          ariaHideApp={false}
+          isOpen={isModalOpened}
+          onRequestClose={closeModal}
+          style={customStyles}
+        >
+          <div className="store_review_modal_header">
+            <Button
+              onClick={() => closeModal()}
+              text={"< 닫기"}
+              type={"goToMain"}
+            />
+            <h2>{data.storeName}의 리뷰</h2>
+          </div>
+          <div className="store_review_modal_content">
+            <div className="store_review_modal_writeDate">{data.writeDate}</div>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <img
+                key={star}
+                src={star <= data.starPoint ? "/starOn.png" : "/starOff.png"}
+                alt={`Star ${star}`}
+              />
+            ))}
+            <div className="store_review_modal_reviewContent">{data.reviewContent}</div>
+            <div className="store_review_modal_productName">{data.productName}</div>
+          </div>
+        </ReactModal>
+      ))}
     </div>
   );
 };

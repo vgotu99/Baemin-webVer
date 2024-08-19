@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Like from "./pages/Like";
 import Cart from "./pages/Cart";
 import OrderList from "./pages/OrderList";
+import Review from "./pages/Review";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
         }
       />
       <Route
-        path="/like"
+        path="/profile/like"
         element={
           <ProtectedRoute>
             <Like />
@@ -45,7 +46,7 @@ function App() {
         }
       />
       <Route
-        path="/cart"
+        path="/profile/cart"
         element={
           <ProtectedRoute>
             <Cart />
@@ -53,10 +54,18 @@ function App() {
         }
       />
       <Route
-        path="/orderlist"
+        path="/profile/orderlist"
         element={
           <ProtectedRoute>
             <OrderList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile/review"
+        element={
+          <ProtectedRoute>
+            <Review />
           </ProtectedRoute>
         }
       />

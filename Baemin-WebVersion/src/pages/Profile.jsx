@@ -8,7 +8,13 @@ const Profile = () => {
   const [userData, setUserData] = useState(null);
   const [orderData, setOrderData] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  const [isModalOpened, setIsModalOpened] = useState(false);
+  const [isOrderModalOpened, setIsOrderModalOpened] = useState(false);
+  const [isReviewModalOpened, setIsReviewModalOpened] = useState(false);
+  const [reviewItem, setReviewItem] = useState(null);
+  const [starPoint, setStarPoint] = useState(0);
+  const [reviewContent, setReviewContent] = useState("");
+  const [reviewedItems, setReviewedItems] = useState("");
+  const [error, setError] = useState("");
   const nav = useNavigate();
 
   useEffect(() => {
@@ -32,12 +38,62 @@ const Profile = () => {
 
   const openModal = (order) => {
     setSelectedOrder(order);
-    setIsModalOpened(true);
+    setIsOrderModalOpened(true);
   };
 
   const closeModal = () => {
     setSelectedOrder(null);
-    setIsModalOpened(false);
+    setIsOrderModalOpened(false);
+  };
+
+  useEffect(() => {
+    const savedReviewedItems = JSON.parse(
+      localStorage.getItem("reviewedItems") || "{}"
+    );
+    setReviewedItems(savedReviewedItems);
+  }, []);
+
+  const goToReview = (item) => {
+    if (!reviewedItems[item.id]) {
+      setReviewItem(item);
+      setIsReviewModalOpened(true);
+      closeModal();
+    }
+  };
+
+  const handleStarClick = (point) => {
+    setStarPoint(point);
+  };
+
+  const handleReviewSubmit = () => {
+    const review = {
+      id: reviewItem.id,
+      storeId: reviewItem.storeId,
+      storeName: reviewItem.storeName,
+      productName: reviewItem.productName,
+      starPoint,
+      reviewContent,
+      writeDate: new Date().toLocaleString(),
+    };
+
+    if (!starPoint) {
+      setError("은 필수로 입력해주세요!.");
+      return;
+    }
+
+    const userReview = JSON.parse(localStorage.getItem("userReview") || "[]");
+    userReview.push(review);
+    localStorage.setItem("userReview", JSON.stringify(userReview));
+
+    const updatedReviewedItems = { ...reviewedItems, [reviewItem.id]: true };
+    setReviewedItems(updatedReviewedItems);
+    localStorage.setItem("reviewedItems", JSON.stringify(updatedReviewedItems));
+
+    setIsReviewModalOpened(false);
+    setReviewItem(null);
+    setStarPoint(0);
+    setReviewContent("");
+    setError("");
   };
 
   const customStyles = {
@@ -72,7 +128,7 @@ const Profile = () => {
     );
   }
 
-  const displayedOrderList = orderData.slice(0,4)
+  const displayedOrderList = orderData.slice(0, 4);
 
   return (
     <div className="profile">
@@ -80,14 +136,24 @@ const Profile = () => {
       <div className="profile_header">
         <div>더 귀한분, {userData.nickname}님</div>
         <div className="profile_btn">
-          <Button onClick={() => nav('/orderlist')} type={"profile"} text={"주문내역"} imgType={"orderList"} />
           <Button
-            onClick={() => nav("/like")}
+            onClick={() => nav("/profile/orderlist")}
+            type={"profile"}
+            text={"주문내역"}
+            imgType={"orderList"}
+          />
+          <Button
+            onClick={() => nav("/profile/like")}
             type={"profile"}
             text={"나의찜"}
             imgType={"likeOn"}
           />
-          <Button type={"profile"} text={"리뷰관리"} imgType={"star"} />
+          <Button
+            onClick={() => nav("/profile/review")}
+            type={"profile"}
+            text={"리뷰관리"}
+            imgType={"review"}
+          />
         </div>
       </div>
       <div className="profile_orderList">
@@ -106,19 +172,20 @@ const Profile = () => {
       </div>
       <ReactModal
         ariaHideApp={false}
-        isOpen={isModalOpened}
+        isOpen={isOrderModalOpened}
         onRequestClose={closeModal}
         style={customStyles}
       >
         {selectedOrder && (
           <div>
             <div className="modal_header">
+              <Button onClick={closeModal} text={"< 닫기"} type={"goToMain"} />
               <h2>주문 상세 내역 ({selectedOrder.orderDate})</h2>
             </div>
             <div className="modal_content">
               {selectedOrder.items.map((item) => (
-                <div key={item.id}>
-                  <div className="content_wrapper">
+                <div key={item.id} className="content_box">
+                  <div className="content_text">
                     <div className="modal_store_name"># {item.storeName}</div>
                     <div className="modal_product_name">
                       - {item.productName}
@@ -130,16 +197,68 @@ const Profile = () => {
                       - {item.productPrice}원
                     </div>
                   </div>
+                  <div className="content_btn">
+                    {reviewedItems[item.id] ? (
+                      <Button text={"리뷰 작성완료"} type={"doneReview"} />
+                    ) : (
+                      <Button
+                        onClick={() => goToReview(item)}
+                        text={`리뷰 작성하기`}
+                        type={"goToReview"}
+                      />
+                    )}
+                  </div>
                 </div>
               ))}
-            </div>
-
-            <div className="modal_button_wrapper">
-              <Button onClick={closeModal} text={"닫기"} type={"modal_btn"} />
             </div>
           </div>
         )}
       </ReactModal>
+      <ReactModal
+        ariaHideApp={false}
+        isOpen={isReviewModalOpened}
+        onRequestClose={() => setIsReviewModalOpened(false)}
+        style={customStyles}
+      >
+        {reviewItem && (
+          <div className="review-modal">
+            <div className="review-modal-header">
+              <h2># {reviewItem.storeName}</h2>
+              <div className="modal_product_name">
+                - {reviewItem.productName}
+              </div>
+            </div>
+            <div className="review-modal-star">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <img
+                  key={star}
+                  src={star <= starPoint ? "/starOn.png" : "/starOff.png"}
+                  alt={`Star ${star}`}
+                  onClick={() => handleStarClick(star)}
+                />
+              ))}
+            </div>
+            <textarea
+              className="review-modal-content"
+              value={reviewContent}
+              onChange={(e) => setReviewContent(e.target.value)}
+              placeholder="리뷰를 작성해주세요."
+            ></textarea>
+            {error && (
+              <div className="error-message" style={{ color: "red" }}>
+                <img src="/starOn.png" />
+                <div>{error}</div>
+              </div>
+            )}
+            <Button
+              onClick={handleReviewSubmit}
+              text={"리뷰 작성완료"}
+              type={"modal_btn"}
+            />
+          </div>
+        )}
+      </ReactModal>
+
       <div className="profile_logOut">
         <Button
           onClick={handleLogout}

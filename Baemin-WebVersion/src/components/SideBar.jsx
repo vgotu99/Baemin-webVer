@@ -19,13 +19,13 @@ const SideBar = ({ switchView }) => {
         <Button type={"sideBar"} text={"주소"} imgType={"adress"} />
         <Button type={"sideBar"} text={"알림"} imgType={"alert"} />
         <Button
-          onClick={() => nav("/cart")}
+          onClick={() => nav("/profile/cart")}
           type={"sideBar"}
           text={"장바구니"}
           imgType={"cart"}
         />
         <Button
-          onClick={() => nav("/like")}
+          onClick={() => nav("/profile/like")}
           type={"sideBar"}
           text={"찜"}
           imgType={"like"}

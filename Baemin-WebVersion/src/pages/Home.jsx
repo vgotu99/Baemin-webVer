@@ -19,9 +19,9 @@ const Home = () => {
   const handleSearch = (term) => {
     const result = stores.filter(
       (store) =>
-        store.name.toLowerCase().includes(term.toLowerCase()) ||
-        store.products.some((products) =>
-          products.name.toLowerCase().includes(term.toLowerCase())
+        store.name.trim().replaceAll(" ", "").toLowerCase().includes(term.trim().replaceAll(" ", "").toLowerCase()) ||
+        store.products.some(product =>
+          product.name.trim().replaceAll(" ", "").toLowerCase().includes(term.trim().replaceAll(" ", "").toLowerCase())
         )
     );
 
@@ -40,16 +40,16 @@ const Home = () => {
     switch (curView) {
       case "main":
         return <Main switchView={switchView} />;
-      case curView:
-        return <StoreList curView={curView} />;
+      case 'search':
+        return <StoreList curView={curView} stores={searchResult}/>;
       default:
-        return <Main />;
+        return <StoreList curView={curView} stores={stores} />;
     }
   };
 
   const renderHeader = () => {
     return curView === "main" ? (
-      <HeaderBar />
+      <HeaderBar onSearch={handleSearch}/>
     ) : (
       <CategoryBar switchView={switchView} curView={curView} />
     );
@@ -66,7 +66,7 @@ const Home = () => {
       </div>
       <div className="home_profile">
         <Button
-          onClick={() => nav("/cart")}
+          onClick={() => nav("/profile/cart")}
           type={"home_cart"}
           imgType={"cart"}
         />
