@@ -18,13 +18,9 @@ const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
       );
       setStoreReviewedData(filteredReview);
     }
-    // storeReviewData.map((item) =>
-    //   {if (store.id === item.storeId) {
-    //     setStoreReviewData(storeReviewData)
-    //     console.log('데이터를 가져왔습니다')
-    //   }}
-    // )
   }, []);
+
+  console.log(storeReviewedData);
 
   const openModal = () => {
     setIsModalOpened(true);
@@ -41,7 +37,7 @@ const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: "rgba(255,255,255,.85)",
+      backgroundColor: "rgba(255,255,255,.5)",
       zIndex: "3",
     },
     content: {
@@ -100,35 +96,45 @@ const StoreInfoHeaderForm = ({ store, onClickLike, isLiked }) => {
           <div>{store.tip}</div>
         </div>
       </div>
-      {storeReviewedData.map((data) => (
-        <ReactModal
-          ariaHideApp={false}
-          isOpen={isModalOpened}
-          onRequestClose={closeModal}
-          style={customStyles}
-        >
-          <div className="store_review_modal_header">
-            <Button
-              onClick={() => closeModal()}
-              text={"< 닫기"}
-              type={"goToMain"}
-            />
-            <h2>{data.storeName}의 리뷰</h2>
+
+      <ReactModal
+        ariaHideApp={false}
+        isOpen={isModalOpened}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+        
+        <div className="store_review_modal_header">
+          <Button
+            onClick={() => closeModal()}
+            text={"< 닫기"}
+            type={"goToMain"}
+          />
+          <h2>{store.name}에 대한 리뷰</h2>
+        </div>
+        {storeReviewedData.map((data) => (
+          <div key={data.id}>
+            <div className="store_review_modal_content">
+              <div className="store_review_modal_writeDate">
+                {data.writeDate}
+              </div>
+              {[1, 2, 3, 4, 5].map((star) => (
+                <img
+                  key={star}
+                  src={star <= data.starPoint ? "/starOn.png" : "/starOff.png"}
+                  alt={`Star ${star}`}
+                />
+              ))}
+              <div className="store_review_modal_reviewContent">
+                {data.reviewContent}
+              </div>
+              <div className="store_review_modal_productName">
+                {data.productName}
+              </div>
+            </div>
           </div>
-          <div className="store_review_modal_content">
-            <div className="store_review_modal_writeDate">{data.writeDate}</div>
-            {[1, 2, 3, 4, 5].map((star) => (
-              <img
-                key={star}
-                src={star <= data.starPoint ? "/starOn.png" : "/starOff.png"}
-                alt={`Star ${star}`}
-              />
-            ))}
-            <div className="store_review_modal_reviewContent">{data.reviewContent}</div>
-            <div className="store_review_modal_productName">{data.productName}</div>
-          </div>
-        </ReactModal>
-      ))}
+        ))}
+      </ReactModal>
     </div>
   );
 };
