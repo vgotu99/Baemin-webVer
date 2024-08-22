@@ -6,9 +6,9 @@ const StoreListForm = ({ storeName, star, tip, lowest, type, onClick }) => {
       <div>
         <img className="storeImg" src={`/${type}.png`} alt="" />
       </div>
-      <div className="storeInfoabc">
+      <div className="store_info_text">
         <h2>{storeName}</h2>
-        <h3>⭐️ {star}</h3>
+        <h3><img src="/starOn.png" />{star}</h3>
         <div>배달팁 {tip}</div>
         <div>최소주문 {lowest}</div>
       </div>

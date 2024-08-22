@@ -1,6 +1,5 @@
 .input-container {
   position: relative;
-  margin-bottom: 25px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 20px 5px 5px 5px;
@@ -10,7 +9,7 @@
 }
 
 .input-container.focused {
-  border-color: #2bc1bc; /* 네이버 녹색 */
+  border-color: #2bc1bc;
 }
 
 .input-container input {

@@ -17,6 +17,7 @@ const Login = ({ switchJoin }) => {
     if (user) {
       localStorage.setItem("currentUser", JSON.stringify(user));
       nav("/");
+      alert("로그인되었습니다.");
     } else {
       setError("아이디 또는 비밀번호가 잘못되었습니다.");
     }
@@ -32,22 +33,26 @@ const Login = ({ switchJoin }) => {
           type={"join_subBtn"}
         />
       </div>
-      <div className="input_id">
-        <Input
-          onChange={(e) => setId(e.target.value)}
-          type={"text"}
-          label={"아이디를 입력해주세요"}
-        />
+      <div className="input_main">
+        <div className="input_login_id">
+          <Input
+            onChange={(e) => setId(e.target.value)}
+            type={"text"}
+            label={"아이디를 입력해주세요"}
+          />
+        </div>
+        <div className="input_login_password">
+          <Input
+            onChange={(e) => setPassword(e.target.value)}
+            type={"password"}
+            label={"비밀번호를 입력해주세요"}
+          />
+        </div>
+        <div className="inputValid_test_box">
+          {error ? <p style={{ color: "red" }}>{error}</p> : <div>ㅤ</div>}
+        </div>
+        <Button onClick={handleLogin} text={"로그인"} type={"join_mainBtn"} />
       </div>
-      <div className="input_password">
-        <Input
-          onChange={(e) => setPassword(e.target.value)}
-          type={"password"}
-          label={"비밀번호를 입력해주세요"}
-        />
-      </div>
-      <Button onClick={handleLogin} text={"로그인"} type={"join_mainBtn"} />
-      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };

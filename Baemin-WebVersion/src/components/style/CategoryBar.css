@@ -2,10 +2,11 @@
   margin-top: 10px;
   width: 80%;
   height: 115px;
+  background-color: white;
 }
 
 .categoryBar_goToMain {
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
   justify-content: start;
   align-items: start;

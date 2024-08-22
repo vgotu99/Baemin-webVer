@@ -1,0 +1,41 @@
+.input_password input {
+  font-family: sans-serif;
+}
+
+.input_passwordCheck input {
+  font-family: sans-serif;
+}
+
+.input_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input_addressBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 324px;
+  gap: 3%;
+}
+
+.input_address {
+  margin-bottom: 20px;
+}
+
+.input_addressBtn > div {
+  color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 5px;
+}
+
+.inputValid_test_box {
+  text-align: center;
+  font-size: 14px;
+  width: 500px;
+  height: 20px;
+}
+
+.inputValid_test_box > p {
+  margin: 0;
+}

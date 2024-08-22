@@ -16,8 +16,18 @@
     max-width: 150px;
 }
 
-.storeInfoabc {
+.store_info_text {
     display: flex;
     flex-direction: column;
     font-size: 16px;
+}
+
+.store_info_text h3 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.store_info_text h3 > img {
+    width: 30px;
 }

@@ -1,7 +1,7 @@
 import "./style/HeaderBar.css";
 
 const HeaderBar = ({ onSearch }) => {
-  const address = JSON.parse(localStorage.getItem("currentUser"));
+  const address = JSON.parse(localStorage.getItem("currentUser")) || {address: '주소를 설정하세요.'};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,9 @@ const HeaderBar = ({ onSearch }) => {
           name="search"
           placeholder="원하시는 메뉴 혹은 가게명을 검색해주세요"
         />
-        <button type="submit">🔎</button>
+        <button type="submit">
+          <img src="/search.png" />
+        </button>
       </form>
     </div>
   );

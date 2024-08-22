@@ -3,72 +3,75 @@ import Home from "./pages/Home";
 import Join from "./pages/Join";
 import Profile from "./pages/Profile";
 import StoreInfo from "./pages/StoreInfo";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute_isLogout from "./components/ProtectedRoute_isLogout";
+import ProtectedRoute_isLogin from "./components/ProtectedRoute_isLogin";
 import Like from "./pages/Like";
 import Cart from "./pages/Cart";
 import OrderList from "./pages/OrderList";
 import Review from "./pages/Review";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <Routes>
-      <Route path="/join" element={<Join />} />
       <Route
-        path="/"
+        path="/join"
         element={
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
+          <ProtectedRoute_isLogin>
+            <Join />
+          </ProtectedRoute_isLogin>
         }
       />
+      <Route path="/" element={<Home />} />
       <Route
         path="/profile"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute_isLogout>
             <Profile />
-          </ProtectedRoute>
+          </ProtectedRoute_isLogout>
         }
       />
       <Route
         path="/store/:id"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute_isLogout>
             <StoreInfo />
-          </ProtectedRoute>
+          </ProtectedRoute_isLogout>
         }
       />
       <Route
         path="/profile/like"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute_isLogout>
             <Like />
-          </ProtectedRoute>
+          </ProtectedRoute_isLogout>
         }
       />
       <Route
         path="/profile/cart"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute_isLogout>
             <Cart />
-          </ProtectedRoute>
+          </ProtectedRoute_isLogout>
         }
       />
       <Route
         path="/profile/orderlist"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute_isLogout>
             <OrderList />
-          </ProtectedRoute>
+          </ProtectedRoute_isLogout>
         }
       />
       <Route
         path="/profile/review"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute_isLogout>
             <Review />
-          </ProtectedRoute>
+          </ProtectedRoute_isLogout>
         }
       />
+      <Route path="*" element={<NotFound/ >}/>
     </Routes>
   );
 }

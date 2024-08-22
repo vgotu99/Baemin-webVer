@@ -41,6 +41,22 @@
     bottom: 114px;
 }
 
+.emptyCart {
+    width: 650px;
+    height: 100%;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.emptyCart > img {
+    width: 100%;
+}
+
+
+
 .main_item {
     display: flex;
     flex-direction: row;

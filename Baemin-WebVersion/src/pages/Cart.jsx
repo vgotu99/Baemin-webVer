@@ -11,12 +11,8 @@ const Cart = () => {
   useEffect(() => {
     const userCart = JSON.parse(localStorage.getItem("userCart"));
     if (!userCart) {
-      setTimeout(() => {
-        alert(
-          "장바구니에 담긴 메뉴가 없습니다. 메뉴를 장바구니에 담아 주문해보세요!"
-        );
-        nav("/");
-      }, 500);
+      setCartItem("");
+      return;
     } else {
       setCartItem(userCart);
 
@@ -55,6 +51,7 @@ const Cart = () => {
     alert("고객님의 메뉴가 주문되었습니다. 빨리 배달해드릴게요!");
     nav("/");
   };
+  console.log(cartItem);
 
   return (
     <div className="cart">
@@ -69,26 +66,33 @@ const Cart = () => {
         <div className="header_text">나의 장바구니</div>
       </div>
       <div className="cart_main">
-        {cartItem.map((item) => (
-          <div key={item.id}>
-            <div className="main_item">
-              <div className="item_img">
-                <img src={`/${item.storeType}.png`} alt="" />
-              </div>
-              <div className="item_info">
-                <div className="storeName">{item.storeName}</div>
-                <div className="productName">{item.productName}</div>
-                <div className="productPrice">{item.productPrice}원</div>
-                <div className="productDescription">
-                  {item.productDescription}
+        {!cartItem ? (
+          <div className="emptyCart">
+            <img src="/emptyCart.png" />
+            <div>장바구니가 텅 비었어요</div>
+            <Button onClick={() => nav('/')} text={'﹢ 더 담으러 가기'} type={'emptyCart'}/>
+          </div>
+        ) : (
+          cartItem.map((item) => (
+            <div key={item.id}>
+              <div className="main_item">
+                <div className="item_img">
+                  <img src={`/${item.storeType}.png`} alt="" />
+                </div>
+
+                <div className="item_info">
+                  <div className="storeName">{item.storeName}</div>
+                  <div className="productName">{item.productName}</div>
+                  <div className="productPrice">{item.productPrice}원</div>
+                  <div className="productDescription">
+                    {item.productDescription}
+                  </div>
                 </div>
               </div>
             </div>
-            
-          </div>
-        ))}
+          ))
+        )}
       </div>
-
       <div className="cart_footer">
         <Button
           onClick={handleOrder}

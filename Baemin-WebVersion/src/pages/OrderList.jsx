@@ -186,10 +186,8 @@ const OrderList = () => {
         {reviewItem && (
           <div className="review-modal">
             <div className="review-modal-header">
-              <h2># {reviewItem.storeName}</h2>
-              <div className="modal_product_name">
-                - {reviewItem.productName}
-              </div>
+              <h1># {reviewItem.storeName}</h1>
+              <h2>- {reviewItem.productName}</h2>
             </div>
             <div className="review-modal-star">
               {[1, 2, 3, 4, 5].map((star) => (

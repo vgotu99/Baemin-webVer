@@ -39,12 +39,17 @@
 }
 
 .headerBar form > button {
-  width: 7%;
   background-color: white;
   border: none;
   border-radius: 10px;
   font-size: 22px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerBar img {
+  width: 30px;
 }
 
 

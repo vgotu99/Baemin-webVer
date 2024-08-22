@@ -9,6 +9,8 @@ import CategoryBar from "../components/CategoryBar";
 import Button from "../components/Button";
 import { stores } from "../components/StoreListData";
 import StoreList from "../components/StoreList";
+import ProtectedRoute_isLogout from "../components/ProtectedRoute_isLogout";
+import BlockGoBack from "../components/BlockGoBack";
 
 const Home = () => {
   const [curView, setCurView] = useState("main");
@@ -19,14 +21,22 @@ const Home = () => {
   const handleSearch = (term) => {
     const result = stores.filter(
       (store) =>
-        store.name.trim().replaceAll(" ", "").toLowerCase().includes(term.trim().replaceAll(" ", "").toLowerCase()) ||
-        store.products.some(product =>
-          product.name.trim().replaceAll(" ", "").toLowerCase().includes(term.trim().replaceAll(" ", "").toLowerCase())
+        store.name
+          .trim()
+          .replaceAll(" ", "")
+          .toLowerCase()
+          .includes(term.trim().replaceAll(" ", "").toLowerCase()) ||
+        store.products.some((product) =>
+          product.name
+            .trim()
+            .replaceAll(" ", "")
+            .toLowerCase()
+            .includes(term.trim().replaceAll(" ", "").toLowerCase())
         )
     );
 
-    setSearchResult(result)
-    setCurView('search')
+    setSearchResult(result);
+    setCurView("search");
   };
 
   const switchView = (view) => {
@@ -40,16 +50,24 @@ const Home = () => {
     switch (curView) {
       case "main":
         return <Main switchView={switchView} />;
-      case 'search':
-        return <StoreList curView={curView} stores={searchResult}/>;
+      case "search":
+        return (
+          <ProtectedRoute_isLogout switchView={switchView}>
+            <StoreList curView={curView} stores={searchResult} />
+          </ProtectedRoute_isLogout>
+        );
       default:
-        return <StoreList curView={curView} stores={stores} />;
+        return (
+          <ProtectedRoute_isLogout switchView={switchView}>
+            <StoreList curView={curView} stores={stores} />
+          </ProtectedRoute_isLogout>
+        );
     }
   };
 
   const renderHeader = () => {
     return curView === "main" ? (
-      <HeaderBar onSearch={handleSearch}/>
+      <HeaderBar onSearch={handleSearch} />
     ) : (
       <CategoryBar switchView={switchView} curView={curView} />
     );
@@ -61,7 +79,11 @@ const Home = () => {
         <SideBar switchView={switchView} />
       </div>
       <div className="home_main">
-        <div className="main_header">{renderHeader()}</div>
+        <div className="main_header">
+          <BlockGoBack switchView={switchView} curView={curView} >
+          {renderHeader()}
+          </BlockGoBack>
+          </div>
         <div className="main_content">{renderMain()}</div>
       </div>
       <div className="home_profile">

@@ -27,6 +27,7 @@ const Profile = () => {
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
     nav("/");
+    alert('로그아웃되었습니다. 이용해주셔서 감사합니다.')
   };
 
   useEffect(() => {
@@ -95,6 +96,15 @@ const Profile = () => {
     setReviewContent("");
     setError("");
   };
+
+  const closeReviewModal = () => {
+
+    setIsReviewModalOpened(false);
+    setReviewItem(null);
+    setStarPoint(0);
+    setReviewContent("");
+    setError("");
+  }
 
   const customStyles = {
     overlay: {
@@ -217,16 +227,14 @@ const Profile = () => {
       <ReactModal
         ariaHideApp={false}
         isOpen={isReviewModalOpened}
-        onRequestClose={() => setIsReviewModalOpened(false)}
+        onRequestClose={closeReviewModal}
         style={customStyles}
       >
         {reviewItem && (
           <div className="review-modal">
             <div className="review-modal-header">
-              <h2># {reviewItem.storeName}</h2>
-              <div className="modal_product_name">
-                - {reviewItem.productName}
-              </div>
+              <h1># {reviewItem.storeName}</h1>
+              <h2>- {reviewItem.productName}</h2>
             </div>
             <div className="review-modal-star">
               {[1, 2, 3, 4, 5].map((star) => (

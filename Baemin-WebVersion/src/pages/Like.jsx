@@ -12,13 +12,10 @@ const Like = () => {
   useEffect(() => {
     const userLike = JSON.parse(localStorage.getItem("userLike"));
     if (!userLike) {
-      setTimeout(() => {
-        alert("찜한 가게가 없습니다. 마음에 드는 가게를 찜해보세요!");
-        nav("/");
-      }, 500);
+      setLikedStore("");
     } else {
-      const likedStore = stores.filter((store) => userLike[store.id]);
-      setLikedStore(likedStore);
+      const userLike = stores.filter((store) => userLike[store.id]);
+      setLikedStore(userLike);
     }
   }, []);
 
@@ -35,7 +32,14 @@ const Like = () => {
         <div className="header_text">내가 찜한 가게</div>
       </div>
       <div className="like_main">
-        {likedStore.map((store) => (
+        {!likedStore ? (
+          <div className="emptyLike">
+            <img src="/emptyLike.png" />
+            <div>찜한 가게가 없어요.</div>
+            <div>마음에 드는 가게를 찜해보세요.</div>
+          </div>
+        ) : (
+        likedStore.map((store) => (
           <div key={store.id}>
             <StoreListForm
               onClick={() => nav(`/store/${store.id}`)}
@@ -46,7 +50,8 @@ const Like = () => {
               lowest={store.lowest}
             />
           </div>
-        ))}
+        ))
+      )}
       </div>
     </div>
   );

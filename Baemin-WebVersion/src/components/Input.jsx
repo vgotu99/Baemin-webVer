@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./style/Input.css";
 
-const Input = ({ value, label, type, onChange }) => {
+const Input = ({ label, type, onChange, value }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
@@ -24,8 +24,8 @@ const Input = ({ value, label, type, onChange }) => {
     >
       <input
         ref={inputRef}
-        type={type}
         value={value}
+        type={type}
         onFocus={handleFocus}
         onChange={handleChange}
         onBlur={handleBlur}

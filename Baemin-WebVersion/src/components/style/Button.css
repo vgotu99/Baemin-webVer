@@ -26,7 +26,6 @@
   min-width: 130px;
   white-space: nowrap;
   text-overflow: ellipsis;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -114,6 +113,7 @@
   background-color: white;
   border: none;
   width: 33%;
+  margin-top: 2%;
 }
 
 .button_join > img {
@@ -236,4 +236,16 @@
   height: 60px;
   font-weight: bold;
   cursor: default;
+}
+
+.button_emptyCart {
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .3);
+  padding-right: 15px;
+  border-radius: 20px;
+  font-size: 18px;
+  width: 170px;
+  height: 40px;
+
 }

@@ -1,5 +1,5 @@
-const currentUser = JSON.parse(localStorage.getItem('currentUser')) || { bname: '기본' };
-const modifiedBname = (currentUser.bname || '기본').replace('동', '');
+const currentUser = JSON.parse(localStorage.getItem('currentUser')) || { bname: '' };
+const modifiedBname = (currentUser.bname || '').replace('동', '점');
 
 export const stores = [
   {
@@ -7,7 +7,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~2000원`,
     lowest: `10000원`,
-    name: `귀한족발 ${modifiedBname}점`,
+    name: `귀한족발 ${modifiedBname}`,
     type: `bossam`,
     sells: [`bossam`, `night`, `meat`],
     products: [
@@ -48,7 +48,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~2500원`,
     lowest: `14000원`,
-    name: `마왕족발 ${modifiedBname}점`,
+    name: `마왕족발 ${modifiedBname}`,
     type: `bossam`,
     sells: [`bossam`, `night`, `meat`],
     products: [
@@ -89,7 +89,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~3200원`,
     lowest: `14000원`,
-    name: `구구족 ${modifiedBname}점`,
+    name: `구구족 ${modifiedBname}`,
     type: `bossam`,
     sells: [`bossam`, `night`, `meat`],
     products: [
@@ -130,7 +130,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~3400원`,
     lowest: `10000원`,
-    name: `두찜 ${modifiedBname}점`,
+    name: `두찜 ${modifiedBname}`,
     type: `jjigae`,
     sells: [`jjigae`, `per1`, `night`, `rice`],
     products: [
@@ -171,7 +171,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~1600원`,
     lowest: `13000원`,
-    name: `사위식당 ${modifiedBname}점`,
+    name: `사위식당 ${modifiedBname}`,
     type: `jjigae`,
     sells: [`per1`, `jjigae`, `rice`],
     products: [
@@ -212,7 +212,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~2200원`,
     lowest: `9000원`,
-    name: `열정국밥 ${modifiedBname}점`,
+    name: `열정국밥 ${modifiedBname}`,
     type: `jjigae`,
     sells: [`per1`, `jjigae`, `rice`],
     products: [
@@ -253,7 +253,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~3000원`,
     lowest: `14000원`,
-    name: `육회한녀석들 ${modifiedBname}점`,
+    name: `육회한녀석들 ${modifiedBname}`,
     type: `sushi`,
     sells: [`per1`, `sushi`, `night`],
     products: [
@@ -294,7 +294,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~3300원`,
     lowest: `10000원`,
-    name: `연돈 ${modifiedBname}점`,
+    name: `연돈 ${modifiedBname}`,
     type: `sushi`,
     sells: [`sushi`, `per1`, `rice`, `lunchbox`],
     products: [
@@ -335,7 +335,7 @@ export const stores = [
     star: `(4.8)`,
     tip: `0~1300원`,
     lowest: `10000원`,
-    name: `어사출도 ${modifiedBname}점`,
+    name: `어사출도 ${modifiedBname}`,
     type: `sushi`,
     sells: [`sushi`, `per1`, `night`],
     products: [
@@ -376,7 +376,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~3000원`,
     lowest: `12000원`,
-    name: `미친피자 ${modifiedBname}점`,
+    name: `미친피자 ${modifiedBname}`,
     type: `pizza`,
     sells: [`pizza`, `night`],
     products: [
@@ -417,7 +417,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~2600원`,
     lowest: `9000원`,
-    name: `반올림피자 ${modifiedBname}점`,
+    name: `반올림피자 ${modifiedBname}`,
     type: `pizza`,
     sells: [`pizza`, `night`],
     products: [
@@ -458,7 +458,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1700원`,
     lowest: `12000원`,
-    name: `도미노피자 ${modifiedBname}점`,
+    name: `도미노피자 ${modifiedBname}`,
     type: `pizza`,
     sells: [`pizza`, `night`],
     products: [
@@ -499,7 +499,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1500원`,
     lowest: `12000원`,
-    name: `파파존스 ${modifiedBname}점`,
+    name: `파파존스 ${modifiedBname}`,
     type: `pizza`,
     sells: [`pizza`, `night`],
     products: [
@@ -540,7 +540,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~1600원`,
     lowest: `9000원`,
-    name: `제육의달인 ${modifiedBname}점`,
+    name: `제육의달인 ${modifiedBname}`,
     type: `meat`,
     sells: [`per1`, `meat`, `rice`, `lunchbox`],
     products: [
@@ -581,7 +581,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~2800원`,
     lowest: `9000원`,
-    name: `마장동김씨 ${modifiedBname}점`,
+    name: `마장동김씨 ${modifiedBname}`,
     type: `meat`,
     sells: [`meat`, `per1`, `rice`, `lunchbox`],
     products: [
@@ -622,7 +622,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~1900원`,
     lowest: `9000원`,
-    name: `배달돼지 ${modifiedBname}점`,
+    name: `배달돼지 ${modifiedBname}`,
     type: `meat`,
     sells: [`per1`, `meat`, `rice`, `lunchbox`],
     products: [
@@ -663,7 +663,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~2900원`,
     lowest: `10000원`,
-    name: `지랄닭발 ${modifiedBname}점`,
+    name: `지랄닭발 ${modifiedBname}`,
     type: `night`,
     sells: [`night`, `per1`],
     products: [
@@ -704,7 +704,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1900원`,
     lowest: `14000원`,
-    name: `매콤쭈선생 ${modifiedBname}점`,
+    name: `매콤쭈선생 ${modifiedBname}`,
     type: `night`,
     sells: [`night`, `per1`],
     products: [
@@ -745,7 +745,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1100원`,
     lowest: `14000원`,
-    name: `왔다닭발 ${modifiedBname}점`,
+    name: `왔다닭발 ${modifiedBname}`,
     type: `night`,
     sells: [`night`, `per1`],
     products: [
@@ -786,7 +786,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~2100원`,
     lowest: `14000원`,
-    name: `포크너 ${modifiedBname}점`,
+    name: `포크너 ${modifiedBname}`,
     type: `pasta`,
     sells: [`pasta`, `per1`],
     products: [
@@ -827,7 +827,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1700원`,
     lowest: `9000원`,
-    name: `아웃백 ${modifiedBname}점`,
+    name: `아웃백 ${modifiedBname}`,
     type: `pasta`,
     sells: [`pasta`],
     products: [
@@ -868,7 +868,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~2400원`,
     lowest: `10000원`,
-    name: `버텍스 ${modifiedBname}점`,
+    name: `버텍스 ${modifiedBname}`,
     type: `pasta`,
     sells: [`pasta`, `per1`],
     products: [
@@ -909,7 +909,7 @@ export const stores = [
     star: `(5.0)`,
     tip: `0~1500원`,
     lowest: `14000원`,
-    name: `BHC ${modifiedBname}점`,
+    name: `BHC ${modifiedBname}`,
     type: `chicken`,
     sells: [`chicken`, `night`],
     products: [
@@ -950,7 +950,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~1600원`,
     lowest: `12000원`,
-    name: `교촌치킨 ${modifiedBname}점`,
+    name: `교촌치킨 ${modifiedBname}`,
     type: `chicken`,
     sells: [`chicken`, `night`],
     products: [
@@ -991,7 +991,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~3300원`,
     lowest: `10000원`,
-    name: `후라이드중독 ${modifiedBname}점`,
+    name: `후라이드중독 ${modifiedBname}`,
     type: `chicken`,
     sells: [`chicken`, `night`],
     products: [
@@ -1032,7 +1032,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~3000원`,
     lowest: `11000원`,
-    name: `짬뽕지존 ${modifiedBname}점`,
+    name: `짬뽕지존 ${modifiedBname}`,
     type: `jjajang`,
     sells: [`per1`, `jjajang`],
     products: [
@@ -1073,7 +1073,7 @@ export const stores = [
     star: `(4.5)`,
     tip: `0~3500원`,
     lowest: `11000원`,
-    name: `달려라짜장 ${modifiedBname}점`,
+    name: `달려라짜장 ${modifiedBname}`,
     type: `jjajang`,
     sells: [`per1`, `jjajang`],
     products: [
@@ -1114,7 +1114,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~2700원`,
     lowest: `13000원`,
-    name: `홍콩반점 ${modifiedBname}점`,
+    name: `홍콩반점 ${modifiedBname}`,
     type: `jjajang`,
     sells: [`per1`, `jjajang`],
     products: [
@@ -1155,7 +1155,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~1200원`,
     lowest: `13000원`,
-    name: `까몬 ${modifiedBname}점`,
+    name: `까몬 ${modifiedBname}`,
     type: `asian`,
     sells: [`per1`, `asian`, `per1`],
     products: [
@@ -1196,7 +1196,7 @@ export const stores = [
     star: `(5.0)`,
     tip: `0~3400원`,
     lowest: `9000원`,
-    name: `포메인 ${modifiedBname}점`,
+    name: `포메인 ${modifiedBname}`,
     type: `asian`,
     sells: [`per1`, `asian`, `rice`],
     products: [
@@ -1237,7 +1237,7 @@ export const stores = [
     star: `(4.7)`,
     tip: `0~2100원`,
     lowest: `14000원`,
-    name: `땀땀 ${modifiedBname}점`,
+    name: `땀땀 ${modifiedBname}`,
     type: `asian`,
     sells: [`per1`, `asian`, `rice`],
     products: [
@@ -1278,7 +1278,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1700원`,
     lowest: `9000원`,
-    name: `본죽 ${modifiedBname}점`,
+    name: `본죽 ${modifiedBname}`,
     type: `rice`,
     sells: [`rice`, `lunchbox`, `per1`],
     products: [
@@ -1319,7 +1319,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~2400원`,
     lowest: `10000원`,
-    name: `고기듬뿍통큰비빔밥 ${modifiedBname}점`,
+    name: `고기듬뿍통큰비빔밥 ${modifiedBname}`,
     type: `rice`,
     sells: [`per1`, `rice`, `lunchbox`],
     products: [
@@ -1360,7 +1360,7 @@ export const stores = [
     star: `(5.0)`,
     tip: `0~1500원`,
     lowest: `14000원`,
-    name: `국수나무 ${modifiedBname}점`,
+    name: `국수나무 ${modifiedBname}`,
     type: `rice`,
     sells: [`rice`, `per1`],
     products: [
@@ -1401,7 +1401,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~1600원`,
     lowest: `12000원`,
-    name: `본도시락 ${modifiedBname}점`,
+    name: `본도시락 ${modifiedBname}`,
     type: `lunchbox`,
     sells: [`lunchbox`, `rice`, `per1`],
     products: [
@@ -1442,7 +1442,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~3300원`,
     lowest: `10000원`,
-    name: `한솥도시락 ${modifiedBname}점`,
+    name: `한솥도시락 ${modifiedBname}`,
     type: `lunchbox`,
     sells: [`lunchbox`, `per1`, `rice`],
     products: [
@@ -1483,7 +1483,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~3000원`,
     lowest: `11000원`,
-    name: `핵밥 ${modifiedBname}점`,
+    name: `핵밥 ${modifiedBname}`,
     type: `lunchbox`,
     sells: [`per1`, `rice`, `lunchbox`],
     products: [
@@ -1524,7 +1524,7 @@ export const stores = [
     star: `(4.5)`,
     tip: `0~3500원`,
     lowest: `11000원`,
-    name: `우리할매떡볶이 ${modifiedBname}점`,
+    name: `우리할매떡볶이 ${modifiedBname}`,
     type: `tteokbokki`,
     sells: [`per1`, `tteokbokki`],
     products: [
@@ -1565,7 +1565,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~2700원`,
     lowest: `13000원`,
-    name: `신전떡볶이 ${modifiedBname}점`,
+    name: `신전떡볶이 ${modifiedBname}`,
     type: `tteokbokki`,
     sells: [`per1`, `tteokbokki`],
     products: [
@@ -1606,7 +1606,7 @@ export const stores = [
     star: `(4.9)`,
     tip: `0~1200원`,
     lowest: `13000원`,
-    name: `떡순튀 ${modifiedBname}점`,
+    name: `떡순튀 ${modifiedBname}`,
     type: `tteokbokki`,
     sells: [`per1`, `tteokbokki`],
     products: [
@@ -1647,7 +1647,7 @@ export const stores = [
     star: `(5.0)`,
     tip: `0~3400원`,
     lowest: `9000원`,
-    name: `스타벅스 ${modifiedBname}점`,
+    name: `스타벅스 ${modifiedBname}`,
     type: `cafe`,
     sells: [`cafe`],
     products: [
@@ -1688,7 +1688,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~2000원`,
     lowest: `10000원`,
-    name: `요거트월드 ${modifiedBname}점`,
+    name: `요거트월드 ${modifiedBname}`,
     type: `cafe`,
     sells: [`cafe`],
     products: [
@@ -1729,7 +1729,7 @@ export const stores = [
     star: `(4.2)`,
     tip: `0~3200원`,
     lowest: `11000원`,
-    name: `파리바게트 ${modifiedBname}점`,
+    name: `파리바게트 ${modifiedBname}`,
     type: `cafe`,
     sells: [`cafe`],
     products: [
@@ -1770,7 +1770,7 @@ export const stores = [
     star: `(4.2)`,
     tip: `0~2600원`,
     lowest: `12000원`,
-    name: `맥도날드 ${modifiedBname}점`,
+    name: `맥도날드 ${modifiedBname}`,
     type: `fastfood`,
     sells: [`per1`, `fastfood`],
     products: [
@@ -1811,7 +1811,7 @@ export const stores = [
     star: `(4.4)`,
     tip: `0~1500원`,
     lowest: `8000원`,
-    name: `버거킹 ${modifiedBname}점`,
+    name: `버거킹 ${modifiedBname}`,
     type: `fastfood`,
     sells: [`per1`, `fastfood`],
     products: [
@@ -1852,7 +1852,7 @@ export const stores = [
     star: `(4.6)`,
     tip: `0~1200원`,
     lowest: `12000원`,
-    name: `맘스터치 ${modifiedBname}점`,
+    name: `맘스터치 ${modifiedBname}`,
     type: `fastfood`,
     sells: [`per1`, `chicken`, `fastfood`],
     products: [

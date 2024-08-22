@@ -144,6 +144,7 @@ const CategoryBar = ({ switchView, curView }) => {
             text={"패스트푸드"}
           />
         </div>
+        
       </Slider>
       <div className="categoryBar_goToMain">
       <Button
